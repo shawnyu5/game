@@ -8,20 +8,25 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +16 planning.md
-badd +23 hangman.h
-badd +24 hangman.cpp
+badd +34 planning.md
+badd +19 hangman.h
+badd +1 hangman.cpp
 badd +1 makefile
 badd +15 main.cpp
-badd +13 testing/getWord.cpp
-badd +0 .word.txt
+badd +17 testing/getWord.cpp
+badd +1 .word.txt
+badd +1 testing/testing.cpp
+badd +1 hangMan.cpp
+badd +46 hangMan.h
 argglobal
 %argdel
 $argadd planning.md
 tabnew
 tabnew
+tabnew
+tabnew
 tabrewind
-edit hangman.cpp
+edit hangMan.cpp
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -41,28 +46,7 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 65 + 65) / 131)
 exe 'vert 2resize ' . ((&columns * 65 + 65) / 131)
 argglobal
-balt hangman.h
-setlocal fdm=diff
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-let s:l = 35 - ((23 * winheight(0) + 14) / 28)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 35
-normal! 0
-wincmd w
-argglobal
-if bufexists("hangman.h") | buffer hangman.h | else | edit hangman.h | endif
-if &buftype ==# 'terminal'
-  silent file hangman.h
-endif
-balt hangman.cpp
+balt hangMan.h
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -70,23 +54,47 @@ setlocal fdi=#
 setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
-setlocal nofen
+setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 17 - ((9 * winheight(0) + 14) / 28)
+let s:l = 113 - ((22 * winheight(0) + 13) / 27)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 17
-normal! 030|
+keepjumps 113
+normal! 0
+lcd ~/c++/hang_man
+wincmd w
+argglobal
+if bufexists("~/c++/hang_man/hangMan.h") | buffer ~/c++/hang_man/hangMan.h | else | edit ~/c++/hang_man/hangMan.h | endif
+if &buftype ==# 'terminal'
+  silent file ~/c++/hang_man/hangMan.h
+endif
+balt ~/c++/hang_man/hangMan.cpp
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 30 - ((1 * winheight(0) + 13) / 27)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 30
+normal! 011|
 lcd ~/c++/hang_man
 wincmd w
 exe 'vert 1resize ' . ((&columns * 65 + 65) / 131)
 exe 'vert 2resize ' . ((&columns * 65 + 65) / 131)
 tabnext
-edit ~/c++/hang_man/planning.md
+edit ~/c++/hang_man/.word.txt
 argglobal
-balt ~/c++/hang_man/hangman.cpp
+balt ~/c++/hang_man/hangMan.cpp
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -97,12 +105,53 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 20 - ((17 * winheight(0) + 14) / 28)
+let s:l = 1 - ((0 * winheight(0) + 13) / 27)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 05|
+lcd ~/c++/hang_man
+tabnext
+edit ~/c++/hang_man/planning.md
+argglobal
+balt ~/c++/hang_man/testing/getWord.cpp
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 84 - ((15 * winheight(0) + 13) / 27)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 84
+normal! 0
+tabnext
+edit ~/c++/hang_man/main.cpp
+argglobal
+balt ~/c++/hang_man/testing/testing.cpp
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 20 - ((13 * winheight(0) + 13) / 27)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 20
-normal! 047|
+normal! 0
 tabnext
 edit ~/c++/hang_man/makefile
 argglobal
@@ -117,12 +166,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 25 - ((17 * winheight(0) + 14) / 28)
+let s:l = 7 - ((2 * winheight(0) + 13) / 27)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 25
-normal! 063|
+keepjumps 7
+normal! 04|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -134,6 +183,7 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

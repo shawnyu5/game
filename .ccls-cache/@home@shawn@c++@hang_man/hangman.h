@@ -26,10 +26,16 @@ namespace sdds
         HangMan(string word);
 
         //gets the word from hidden file
-        void getWord();
+        void getWordFromFile();
 
         //set number of attemps allowed
         void setAttempt();
+
+        //set number of hints
+        void setHints();
+
+        //a single attempt
+        void attempt();
 
         //display
         void display(std::ostream& os);

@@ -13,10 +13,11 @@ using namespace sdds;
 int main ()
 {
     HangMan test1;
-    test1.getWord();
-    //testing setAttempt
+    test1.getWordFromFile();
     test1.setAttempt();
-    test1.display(cout);
+    test1.setHints();
+    test1.attempt();
+    //test1.display(cout);
 }
 
 

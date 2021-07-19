@@ -1,0 +1,11 @@
+How many attemps are allowed?
+How many hints would you like to give?
+Letters in word: 9                 Attemps left: 10
+
+hellow_ rd
+Your Guess: ***Correct Guess!!!***
+---------------------------
+Letters in word: 9                 Attemps left: 9
+
+helloword
+Congratulations!!!
