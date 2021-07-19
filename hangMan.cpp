@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <vector>
 #include <string_view>
+#include <fstream>
 #include "hangMan.h"
 using std::cout;
 using std::endl;
@@ -41,10 +42,23 @@ namespace sdds
         }
     }
 
+    //allows user to set a new word as the correct answer
+    void HangMan::setWord()
+    {
+        cout << "New Word: ";
+        std::cin >> m_word;
+
+        std::ofstream file;
+        file.open(".word.txt", std::ofstream::out | std::ofstream::trunc);
+        file << m_word;
+
+        cout << "New Word \"" << m_word << "\" set" << endl;
+    }
+
     //set number of attemps allowed
     void HangMan::setAttempt()
     {
-       cout << "How many attemps are allowed?" << endl;
+       cout << "How many attemps are allowed? (There are " << m_letter_count << " letters in answer)" << endl;
        string attemps;
        bool valid = false;
        while(!valid)
@@ -170,7 +184,8 @@ namespace sdds
         string temp_guess;
         cout << "Your Guess: ";
         std::cin.clear();
-        std::cin >> temp_guess;
+        std::getline(std::cin, temp_guess);
+        //std::cin >> temp_guess;
 
         const char* guess = temp_guess.c_str();
 
@@ -200,6 +215,8 @@ namespace sdds
         }
 
         m_attempt--;
+        //clear screen after ever attempt
+        system("clear");
         display(cout);
         return false;
     }

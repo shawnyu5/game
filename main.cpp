@@ -12,18 +12,40 @@ using namespace sdds;
 
 int main ()
 {
+    cout << "=================================\n"
+        << "     Welcome To Hang Man        \n"
+        << "=================================\n\n"
+        << "1. Play Game" << endl
+        << "2. Set New Word" << endl << endl
+        << "Your Choice: ";
+
+    string choice{};
+    std::getline(std::cin, choice);
+
     HangMan game1;
-    //retrieve the correct word
-    game1.getWordFromFile();
+    if(choice == "1")
+    {
+        //retrieve the correct word
+        game1.getWordFromFile();
 
-    //how many attemps are allowed by the user
-    game1.setAttempt();
-    game1.setHints();
-    game1.display(cout);
+        //how many attemps are allowed by the user
+        game1.setAttempt();
+        game1.setHints();
+        game1.display(cout);
 
-    //keep asking for attemps until attemp returns true
-    while(!game1.attempt());
-    //game1.display(cout);
+        //keep asking for attemps until attemp returns true
+        while(!game1.attempt());
+
+        //game1.display(cout);
+    }
+    else if (choice == "2")
+    {
+        game1.setWord();
+    }
+    else
+    {
+        cout << "Invalid input" << endl;
+    }
 }
 
 

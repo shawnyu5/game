@@ -37,17 +37,20 @@ namespace sdds
         //gets the word from hidden file
         void getWordFromFile();
 
+        //allows user to set a new word as the correct answer
+        void setWord();
+
         //set number of attemps allowed
         void setAttempt();
 
         //set number of hints
         void setHints();
 
-        //function checks of the game has been complete
-        bool win();
-
         //a single attempt
         bool attempt();
+
+        //function checks of the game has been complete
+        bool win();
 
         //display
         void display(std::ostream& os);
