@@ -22,9 +22,11 @@ int main ()
     string choice{};
     std::getline(std::cin, choice);
 
-    HangMan game1;
+    //HangMan game1;
     if(choice == "1")
     {
+        HangMan::run(true);
+#if 0
         //retrieve the correct word
         game1.getWordFromFile();
 
@@ -37,10 +39,11 @@ int main ()
         while(!game1.attempt());
 
         //game1.display(cout);
+#endif
     }
     else if (choice == "2")
     {
-        game1.setWord();
+        HangMan::run(false);
     }
     else
     {

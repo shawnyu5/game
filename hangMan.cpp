@@ -221,6 +221,32 @@ namespace sdds
         return false;
     }
 
+    //runs this game
+    void run(bool play)
+    {
+        //local game object
+        HangMan game1;
+
+        if (play == true)
+        {
+            //retrieve the correct word
+            game1.getWordFromFile();
+
+            //how many attemps are allowed by the user
+            game1.setAttempt();
+            game1.setHints();
+            game1.display(cout);
+
+            //keep playing until attemp returns true
+            while(!game1.attempt());
+        }
+        else
+        {
+            game1.setWord();
+        }
+
+    }
+
     //display
     void HangMan::display(std::ostream& os)
     {

@@ -46,11 +46,14 @@ namespace sdds
         //set number of hints
         void setHints();
 
-        //a single attempt
+        //represents a single attempt
         bool attempt();
 
         //function checks of the game has been complete
         bool win();
+
+        //runs this game. if true, run game. if false, set new word
+        void run(bool play);
 
         //display
         void display(std::ostream& os);
