@@ -222,8 +222,9 @@ namespace sdds
     }
 
     //runs this game
-    void run(bool play)
+    void run()
     {
+        bool play = true;
         //local game object
         HangMan game1;
 

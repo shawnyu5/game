@@ -34,6 +34,9 @@ namespace sdds
         //1 arg constructor
         HangMan(string word);
 
+        //runs this game. if true, run game. if false, set new word
+        static void run();
+
         //gets the word from hidden file
         void getWordFromFile();
 
@@ -51,9 +54,6 @@ namespace sdds
 
         //function checks of the game has been complete
         bool win();
-
-        //runs this game. if true, run game. if false, set new word
-        void run(bool play);
 
         //display
         void display(std::ostream& os);
