@@ -222,29 +222,18 @@ namespace sdds
     }
 
     //runs this game
-    void run()
+    void HangMan::run(HangMan& obj)
     {
-        bool play = true;
-        //local game object
-        HangMan game1;
+        //retrieve the correct word
+        obj.getWordFromFile();
 
-        if (play == true)
-        {
-            //retrieve the correct word
-            game1.getWordFromFile();
+        //how many attemps are allowed by the user
+        obj.setAttempt();
+        obj.setHints();
+        obj.display(cout);
 
-            //how many attemps are allowed by the user
-            game1.setAttempt();
-            game1.setHints();
-            game1.display(cout);
-
-            //keep playing until attemp returns true
-            while(!game1.attempt());
-        }
-        else
-        {
-            game1.setWord();
-        }
+        //keep playing until attemp returns true
+        while(!obj.attempt());
 
     }
 
