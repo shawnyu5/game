@@ -26,7 +26,7 @@ int main ()
     if(choice == "1")
     {
         HangMan game{};
-        game.run(game);
+        game.run();
 #if 0
         //retrieve the correct word
         game1.getWordFromFile();

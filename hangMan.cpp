@@ -222,18 +222,18 @@ namespace sdds
     }
 
     //runs this game
-    void HangMan::run(HangMan& obj)
+    void HangMan::run()
     {
         //retrieve the correct word
-        obj.getWordFromFile();
+        this->getWordFromFile();
 
         //how many attemps are allowed by the user
-        obj.setAttempt();
-        obj.setHints();
-        obj.display(cout);
+        this->setAttempt();
+        this->setHints();
+        this->display(cout);
 
         //keep playing until attemp returns true
-        while(!obj.attempt());
+        while(!this->attempt());
 
     }
 
