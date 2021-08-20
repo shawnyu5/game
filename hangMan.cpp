@@ -224,16 +224,19 @@ namespace sdds
     //runs this game
     void HangMan::run()
     {
+        //local object
+        HangMan game;
+
         //retrieve the correct word
-        this->getWordFromFile();
+        game.getWordFromFile();
 
         //how many attemps are allowed by the user
-        this->setAttempt();
-        this->setHints();
-        this->display(cout);
+        game.setAttempt();
+        game.setHints();
+        game.display(cout);
 
         //keep playing until attemp returns true
-        while(!this->attempt());
+        while(!game.attempt());
 
     }
 

@@ -25,8 +25,7 @@ int main ()
     //HangMan game1;
     if(choice == "1")
     {
-        HangMan game{};
-        game.run();
+        HangMan::run();
 #if 0
         //retrieve the correct word
         game1.getWordFromFile();

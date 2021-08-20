@@ -53,7 +53,7 @@ namespace sdds
         bool win();
 
         //runs this game.
-        void run();
+        static void run();
 
         //display
         void display(std::ostream& os);

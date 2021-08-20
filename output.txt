@@ -5,4 +5,27 @@
 1. Play Game
 2. Set New Word
 
-Your Choice: Invalid input
+Your Choice: How many attemps are allowed? (There are 6 letters in answer)
+How many hints would you like to give?
+Letters in word: 6                 Attemps left: 10
+
+_ r_ ng_ 
+Your Guess: [H[2J[3JLetters in word: 6                 Attemps left: 9
+
+_ r_ ng_ 
+Your Guess: ***Correct Guess!!!***
+---------------------------
+[H[2J[3JLetters in word: 6                 Attemps left: 8
+
+or_ ng_ 
+Your Guess: ***Correct Guess!!!***
+---------------------------
+[H[2J[3JLetters in word: 6                 Attemps left: 7
+
+orang_ 
+Your Guess: ***Correct Guess!!!***
+---------------------------
+[H[2J[3JLetters in word: 6                 Attemps left: 6
+
+orange
+Congratulations!!!
