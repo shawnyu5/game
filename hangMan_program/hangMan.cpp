@@ -227,6 +227,18 @@ namespace sdds
         //local object
         HangMan game;
 
+    cout << "=================================\n"
+        << "     Welcome To Hang Man        \n"
+        << "=================================\n\n"
+        << "1. Play Game" << endl
+        << "2. Set New Word" << "\n\n"
+        << "Your Choice: ";
+
+    string choice{};
+    std::getline(std::cin, choice);
+
+    if(choice == "1")
+    {
         //retrieve the correct word
         game.getWordFromFile();
 
@@ -237,7 +249,16 @@ namespace sdds
 
         //keep playing until attemp returns true
         while(!game.attempt());
-
+    }
+    else if (choice == "2")
+    {
+        HangMan game;
+        game.setWord();
+    }
+    else
+    {
+        cout << "Invalid input" << endl;
+    }
     }
 
     //display

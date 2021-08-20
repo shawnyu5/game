@@ -4,7 +4,8 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include "hangMan.h"
+#include "hangMan_program/hangMan.h"
+#include "quiz_program/quiz.h"
 using std::cout;
 using std::endl;
 using std::string;
@@ -13,42 +14,121 @@ using namespace sdds;
 int main ()
 {
     cout << "=================================\n"
-        << "     Welcome To Hang Man        \n"
+        << "              Welcome \n"
         << "=================================\n\n"
-        << "1. Play Game" << endl
-        << "2. Set New Word" << endl << endl
-        << "Your Choice: ";
+        << "1. Hang Man" << endl
+        << "2. C++ quiz" << "\n\n";
 
-    string choice{};
-    std::getline(std::cin, choice);
-
-    //HangMan game1;
-    if(choice == "1")
+    int choice{};
+    bool valid{false};
+    while(!valid)
     {
-        HangMan::run();
-#if 0
-        //retrieve the correct word
-        game1.getWordFromFile();
-
-        //how many attemps are allowed by the user
-        game1.setAttempt();
-        game1.setHints();
-        game1.display(cout);
-
-        //keep asking for attemps until attemp returns true
-        while(!game1.attempt());
-
-        //game1.display(cout);
-#endif
+        cout << "Your Choice: ";
+        //ensure user input is a number
+        try
+        {
+            string temp;
+            std::getline(std::cin, temp);
+            choice = stoi(temp);
+            valid = true;
+        }
+        catch(...)
+        {
+            cout << "invalid entry" << '\n';
+        }
     }
-    else if (choice == "2")
+
+
+    switch (choice)
     {
-        HangMan game;
-        game.setWord();
-    }
-    else
-    {
-        cout << "Invalid input" << endl;
+        case 1:
+            HangMan::run();
+            break;
+        case 2:
+
+            Quiz quiz;
+
+            quiz.addQuestion(Question{"Which of the following is an example of a fundamental data type?",
+                    "function",
+                    "char",
+                    "array",
+                    "class",
+                    2
+                    });
+
+
+            quiz.addQuestion(Question{"Which of the following is an example of a fundamental data type?",
+                    "function",
+                    "string",
+                    "array",
+                    "class",
+                    2});
+
+            quiz.addQuestion(Question{"Which type of conversion is known as 'Automatic Conversion'?",
+                    "Explicit Conversion",
+                    "Auto Conversion",
+                    "Implicit Conversion",
+                    "Simple Conversion",
+                    3});
+
+            quiz.addQuestion(Question{"Symbols that perform operations on variables are called...?",
+                    "Operators",
+                    "Data Types",
+                    "Variables",
+                    "Modifiers",
+                    1});
+
+            quiz.addQuestion(Question{"Which of the following is NOT an example of an operator?",
+                    "Logical Operators",
+                    "Arithmetic Operators",
+                    "Relational Operators",
+                    "Symbol Operators",
+                    4});
+
+            quiz.addQuestion(Question{"Which symbol expresses 'not equal'?",
+                    ">=",
+                    "!=",
+                    "<=",
+                    "==",
+                    2});
+
+            quiz.addQuestion(Question{"Which is the correct format for single line comment?",
+                    "/*Comments",
+                    "##Comments",
+                    "//Comments",
+                    "**Comments",
+                    3});
+
+            quiz.addQuestion(Question{"Which of the following expresses a logical 'OR'?",
+                    "||",
+                    "&&",
+                    "!",
+                    "OR",
+                    1});
+
+            quiz.addQuestion(Question{"Which of the following is the symbol for remainder after division?",
+                    "-",
+                    "=",
+                    "^",
+                    "%",
+                    4});
+
+
+            quiz.addQuestion(Question{"The increment operator, '++', increases the value of the operand by...?",
+                    "7",
+                    "2",
+                    "1",
+                    "0",
+                    3});
+
+            quiz.addQuestion(Question{"Which is the correct format for the cout statement?",
+                    "'cout'",
+                    "cout <<",
+                    "cout >>",
+                    "<cout>",
+                    2});
+
+            quiz.run(quiz);
     }
 }
 

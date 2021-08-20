@@ -1,8 +1,8 @@
 #purpose of the file: to compile hangman
 #date: 2021-07-17
 #-------------------------------------------------
-hangMan: hangMan.o main.o
-	 g++ -Wall -g -o hangMan hangMan.o main.o && ./hangMan  | tee output.txt
+game: hangMan.o main.o quiz.o
+	 g++ -Wall -g -o game hangMan.o quiz.o main.o && ./game  | tee output.txt
 
 clean:
 	rm -f *.o hangman
@@ -18,10 +18,11 @@ c: hangMan
 main.o: main.cpp
 	g++ -c main.cpp
 
-hangMan.o: hangMan.cpp hangMan.h
-	g++ -std=c++17 -c hangMan.cpp
+hangMan.o: hangMan_program/hangMan.cpp hangMan_program/hangMan.h
+	g++ -std=c++17 -c hangMan_program/hangMan.cpp
 
-#get word functions correctly, gets the correct number of words
+quiz.o: quiz_program/quiz.cpp quiz_program/quiz.h
+	g++ -c quiz_program/quiz.cpp
 
 testing.o: testing/testing.cpp
 	g++ -c testing/testing.cpp
