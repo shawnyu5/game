@@ -1,4 +1,4 @@
-//purpose of this file: run hangMan game
+//purpose of this file: runs C++ game
 //Date: 2021-07-17
 //---------------------------------
 #include <iostream>
@@ -37,7 +37,6 @@ int main ()
             cout << "invalid entry" << '\n';
         }
     }
-
 
     switch (choice)
     {
@@ -131,5 +130,3 @@ int main ()
             quiz.run(quiz);
     }
 }
-
-

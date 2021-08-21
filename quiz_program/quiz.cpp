@@ -55,6 +55,7 @@ std::vector<Question> Quiz::getQuestions() const
     return m_questions;
 }
 
+//adds score passed in to the total score
 void Quiz::addScore(int score)
 {
     m_total_score += score;
@@ -93,7 +94,7 @@ void Quiz::run(Quiz& quiz)
     cout << "********** WELCOME TO THE C++ QUIZ! **********" << endl;
     cout << endl;
 
-    cout << "Press Enter to start the quiz ..." << endl;
+    cout << "Press Enter to start the quiz..." << endl;
     cin.get();
 
 

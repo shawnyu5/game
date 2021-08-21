@@ -44,7 +44,7 @@ private:
 public:
     void addQuestion(const Question& obj);
 
-    //adds score to the total score
+    //adds score passed in to the total score
     void addScore(int score);
 
     //return the vector of questions

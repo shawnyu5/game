@@ -20,7 +20,6 @@ int main () {
             2
             });
 
-
     quiz.addQuestion(Question{"Which of the following is an example of a fundamental data type?",
             "function",
             "string",
@@ -94,6 +93,3 @@ int main () {
 
     quiz.run(quiz);
 }
-
-
-
