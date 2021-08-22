@@ -7,39 +7,50 @@ using namespace std;
 //asks the user the question, returns true if user got answer correct, else false
 bool Question::askQuestion()
 {
-    cout << endl;
+    cout << '\n';
     cout << m_question << endl;
-    cout << "1. " << m_answer_1 << endl;
-    cout << "2. " << m_answer_2 << endl;
-    cout << "3. " << m_answer_3 << endl;
-    cout << "4. " << m_answer_4 << endl;
+
+    //prints out the possible choices
+    for(int i = 0; i < m_choices.size(); i++)
+    {
+        cout << i+1 << ". " << m_choices[i] << '\n';
+    }
+
     cout << endl;
 
-    cout << "What is your answer? (enter number)" << endl;
-    cin >> m_user_guess;
+    int user_guess{0};
+    cout << "Your Answer (enter number): ";
+    cin >> user_guess;
 
-    if (m_user_guess == m_correct_answer)
+    cout << '\n';
+
+    if (user_guess == m_correct_answer)
     {
-        cout << "***Correct! +10 points" << endl;
+        cout << "***Correct! +10 points***" << endl;
         cout << endl;
         return true;
     }
     else
     {
         cout << endl;
-        cout << "***Incorrect..." << endl;
+        cout << "***Incorrect***" << endl;
         cout << endl;
         return false;
     }
 }
 
-Question::Question(string q, string a1, string a2, string a3, string a4, int correct_answer)
+Question::Question(string question, std::vector<string>choices, int correct_answer)
 {
-    m_question = q;
-    m_answer_1 = a1;
-    m_answer_2 = a2;
-    m_answer_3 = a3;
-    m_answer_4 = a4;
+    //set question
+    m_question = question;
+
+    //add multiple choice choices to vector
+    for (int i = 0; i < choices.size(); i++)
+    {
+        m_choices.push_back(choices[i]);
+    }
+
+    //set correct answer
     m_correct_answer = correct_answer;
 }
 

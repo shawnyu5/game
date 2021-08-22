@@ -12,32 +12,34 @@ using std::string;
 
 struct Question
 {
-    //the question
+    //the answers to the question
     string m_question;
-    string m_answer_1;
-    string m_answer_2;
-    string m_answer_3;
-    string m_answer_4;
 
+    //possible choices to the question
+    std::vector<string> m_choices;
+
+    //the correct answer
     int m_correct_answer = 0;
 
-    int m_user_guess = 0;
+    //no point of having this being a member variable
+    //int m_user_guess = 0;
 
     //default constuctor
     Question()
     {}
 
     //custom constuctor sets a single question
-    Question(string q, string a1, string a2, string a3, string a4, int correct_answer);
+    Question(string question, std::vector<string>choices, int correct_answer);
 
     //asks the current question
     bool askQuestion ();
 };
 
-//manages a bunch of questions
+//manages the questions
 class Quiz
 {
 private:
+    //the questions
     std::vector<Question> m_questions;
     int m_total_score = 0;
 
