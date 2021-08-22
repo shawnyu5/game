@@ -55,14 +55,6 @@ int main ()
                     2
                     });
 
-
-            quiz.addQuestion(Question{"Which of the following is an example of a fundamental data type?",
-                    "function",
-                    "string",
-                    "array",
-                    "class",
-                    2});
-
             quiz.addQuestion(Question{"Which type of conversion is known as 'Automatic Conversion'?",
                     "Explicit Conversion",
                     "Auto Conversion",
@@ -92,10 +84,10 @@ int main ()
                     2});
 
             quiz.addQuestion(Question{"Which is the correct format for single line comment?",
-                    "/*Comments",
-                    "##Comments",
-                    "//Comments",
-                    "**Comments",
+                    "/*this is a comment",
+                    "##this is a comment",
+                    "//this is a comment",
+                    "**this is a comment",
                     3});
 
             quiz.addQuestion(Question{"Which of the following expresses a logical 'OR'?",
@@ -121,11 +113,25 @@ int main ()
                     3});
 
             quiz.addQuestion(Question{"Which is the correct format for the cout statement?",
-                    "'cout'",
-                    "cout <<",
-                    "cout >>",
-                    "<cout>",
+                    "'cout' << \"hello world\"",
+                    "cout << \"hello world\"",
+                    "cout >> \"hello world\"",
+                    "<cout> \"hello world\"",
                     2});
+
+            quiz.addQuestion(Question{"What is the difference between a class and struct in C++?",
+                    "they named different",
+                    "Classes allow private members, while structs does not",
+                    "Structs allow private members, while classes does not",
+                    "there is no difference",
+                    2});
+
+            quiz.addQuestion(Question{"What is a vector?",
+                    "A math equation",
+                    "An array that requires the user to manage memory",
+                    "an array that automatically grows and shrinks as it needs",
+                    "None of the above",
+                    3});
 
             quiz.run(quiz);
     }
