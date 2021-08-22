@@ -3,6 +3,8 @@
 This is a library of games, written in C++. The games are nothing fancy, and
 more will be added in the future.
 
+To play, clone repo and run `make`.
+
 ## Hang Man
 
 Allows the user to either play the game, which then will prompt for the numbers
