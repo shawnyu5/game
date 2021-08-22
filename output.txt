@@ -12,5 +12,4 @@ Your Choice: =================================
 1. Play Game
 2. Set New Word
 
-Your Choice: How many attemps are allowed? (There are 6 letters in answer)
-How many hints would you like to give?
+Your Choice: 
