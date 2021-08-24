@@ -83,27 +83,24 @@ int Quiz::getTotalScore() const
 //tells the user if they passed or not
 void Quiz::validate()
 {
-    cout << "Your Total Score is " << getTotalScore() << " out of 100" << endl;
-    cout << endl;
+    cout << "Your Total Score is " << getTotalScore() << endl << endl;
 
     if (m_total_score >= 70)
     {
-        cout << "Great you passed the quiz!" << endl;
-        cout << endl;
-        cout << " CONGRATS! " << endl;
+        cout << "Great you passed!" << endl;
+        cout << "CONGRATS! " << endl;
     }
     else
     {
-        cout << "Sorry, you did not pass..." << endl;
-        cout << endl;
+        cout << "Sorry, you did not pass..." << endl << endl;
     }
 }
 
 //runs the quiz
 void Quiz::run(Quiz& quiz)
 {
-    cout << "********** WELCOME TO THE C++ QUIZ! **********" << endl;
-    cout << endl;
+    cout << "********** WELCOME TO THE C++ QUIZ! **********" << "\n\n"
+        << "There are " << quiz.getQuestions().size() << " questions in this quiz, each question is worth 10 marks. You must score more than 70 marks to pass. Good luck!" << "\n\n";
 
     cout << "Press Enter to start the quiz..." << endl;
     cin.get();
