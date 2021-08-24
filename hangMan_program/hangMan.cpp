@@ -85,7 +85,6 @@ namespace sdds
            {
                break;
            }
-
        }
 
     }
@@ -94,21 +93,39 @@ namespace sdds
     void HangMan::setHints()
     {
         cout << "How many hints would you like to give?" << endl;
-        bool valid = false;
-        while(!valid)
-        {
-            std::cin >> m_hints;
-            if (m_hints >= m_letter_count)
-            {
-                cout << "too many hints!" << endl;
-            }
-            else
-            {
-                valid = true;
-            }
-        }
 
-        //adds the number of words to the vector
+            string temp_hints;
+            std::getline(std::cin, temp_hints);
+
+            bool valid{false};
+            while(!valid)
+            {
+                //make sure hint input is a number
+                try
+                {
+                    m_hints = stoi(temp_hints);
+                    valid = true;
+                }
+                catch(...)
+                {
+                    cout << "invalid input" << '\n';
+                }
+            }
+
+            do
+            {
+                if (m_hints >= m_letter_count)
+                {
+                    cout << "too many hints!" << endl;
+                    valid = false;
+                }
+                else
+                {
+                    valid = true;
+                }
+            } while(!valid);
+
+        //adds the number of letters to the vector
         std::vector<int> vec;
         for (int i = 0; i < m_letter_count; i++)
         {
@@ -221,44 +238,57 @@ namespace sdds
         return false;
     }
 
+    //displays game instructions
+    void HangMan::instructions()
+    {
+        system("clear");
+        cout << "HOW TO PLAY:" << '\n'
+            << "There are " << m_letter_count << " in the word. Please enter the letters one at a time, followed by ENTER." << endl << endl
+            << "Press enter to begin game..." << endl;
+
+        std::cin.get();
+        system("clear");
+    }
+
     //runs this game
     void HangMan::run()
     {
         //local object
         HangMan game;
 
-    cout << "=================================\n"
-        << "     Welcome To Hang Man        \n"
-        << "=================================\n\n"
-        << "1. Play Game" << endl
-        << "2. Set New Word" << "\n\n"
-        << "Your Choice: ";
+        cout << "=================================\n"
+            << "     Welcome To Hang Man        \n"
+            << "=================================\n\n"
+            << "1. Play Game" << endl
+            << "2. Set New Word" << "\n\n"
+            << "Your Choice: ";
 
-    string choice{};
-    std::getline(std::cin, choice);
+        string choice{};
+        std::getline(std::cin, choice);
 
-    if(choice == "1")
-    {
-        //retrieve the correct word
-        game.getWordFromFile();
+        if(choice == "1")
+        {
+            //retrieve the correct word
+            game.getWordFromFile();
 
-        //how many attemps are allowed by the user
-        game.setAttempt();
-        game.setHints();
-        game.display(cout);
+            //how many attemps are allowed by the user
+            game.setAttempt();
+            game.setHints();
+            game.instructions();
+            game.display(cout);
 
-        //keep playing until attemp returns true
-        while(!game.attempt());
-    }
-    else if (choice == "2")
-    {
-        HangMan game;
-        game.setWord();
-    }
-    else
-    {
-        cout << "Invalid input" << endl;
-    }
+            //keep playing until attemp returns true
+            while(!game.attempt());
+        }
+        else if (choice == "2")
+        {
+            HangMan game;
+            game.setWord();
+        }
+        else
+        {
+            cout << "Invalid input" << endl;
+        }
     }
 
     //display
@@ -273,5 +303,3 @@ namespace sdds
         os << endl;
     }
 }
-
-

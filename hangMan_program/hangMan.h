@@ -26,16 +26,20 @@ namespace sdds
         //number of hints given
         int m_hints{0};
 
+        //the hangMan prompt displayed to the user for entry
         std::list<std::string> m_correct;
     public:
         HangMan()
         {}
 
-        //1 arg constructor
+        //1 arg constructor, sets the correct word
         HangMan(string word);
 
         //gets the word from hidden file
         void getWordFromFile();
+
+        //displays game instructions
+        void instructions();
 
         //allows user to set a new word as the correct answer
         void setWord();
