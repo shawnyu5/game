@@ -41,6 +41,8 @@ class Quiz
 private:
     //the questions
     std::vector<Question> m_questions;
+
+    //user total score
     int m_total_score = 0;
 
 public:
@@ -55,7 +57,7 @@ public:
     //returns the current total score
     int getTotalScore() const;
 
-    //tells the user if they passed or not
+    //tells the user if they passed the quiz or not
     void validate();
 
     //runs the quiz

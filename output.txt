@@ -5,11 +5,101 @@
 1. Hang Man
 2. C++ quiz
 
-Your Choice: =================================
-     Welcome To Hang Man        
-=================================
+Your Choice: [H[2J[3J********** WELCOME TO THE C++ QUIZ! **********
 
-1. Play Game
-2. Set New Word
+There are 9 questions in this quiz, each question is worth 10 marks. You must score more than 70 marks to pass. Good luck!
 
-Your Choice: 
+Press Enter to start the quiz...
+
+Which data type is used to create a variable that should store text?
+1. string
+2. Txt
+3. String
+4. myString
+
+Your Answer (enter number): 
+***Correct! +10 points***
+
+
+How do you create a variable with the numeric value 5?
+1. double x = 5;
+2. int x = 5;
+3. x = 5;
+4. num x = 5;
+5. string x = 5;
+
+Your Answer (enter number): 
+***Correct! +10 points***
+
+
+Array indexes start at index:
+1. 0
+2. 1
+
+Your Answer (enter number): 
+***Correct! +10 points***
+
+
+Which method can be used to find the length of a string?
+1. len()
+2. length()
+3. getSize()
+4. getLength()
+
+Your Answer (enter number): 
+***Correct! +10 points***
+
+
+Which header file lets us work with input and output objects?
+1. #include <stream>
+2. #include <iosstream>
+3. #include <inputstream>
+4. #include <iostream>
+
+Your Answer (enter number): 
+***Correct! +10 points***
+
+
+Which operator can be used to compare two values?
+1. <>
+2. =
+3. ==
+4. ><
+
+Your Answer (enter number): 
+***Correct! +10 points***
+
+
+Which is the correct format for the cout statement?
+1. 'cout' << "hello world";
+2. cout << "hello world";
+3. cout >> "hello world";
+4. <cout> "hello world";
+
+Your Answer (enter number): 
+
+***Incorrect***
+
+
+What is the difference between a class and struct in C++?
+1. they named different
+2. Classes allow private members, while structs does not
+3. Structs allow private members, while classes does not
+4. there is no difference
+
+Your Answer (enter number): 
+***Correct! +10 points***
+
+
+What is a vector?
+1. An array that requires the user to manage memory
+2. an array that automatically grows and shrinks as it needs
+3. None of the above
+
+Your Answer (enter number): 
+***Correct! +10 points***
+
+Your Total Score is 80
+
+Great you passed!
+CONGRATS! 
