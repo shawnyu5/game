@@ -92,38 +92,54 @@ namespace sdds
     //set number of hints
     void HangMan::setHints()
     {
+
+
+#if 0
+        string temp_hints;
+        std::getline(std::cin, temp_hints);
+
+        bool valid{false};
+        while(!valid)
+        {
+            //make sure hint input is a number
+            try
+            {
+                m_hints = stoi(temp_hints);
+                valid = true;
+            }
+            catch(...)
+            {
+                cout << "invalid input" << '\n';
+            }
+        }
+#endif
+
         cout << "How many hints would you like to give?" << endl;
 
-            string temp_hints;
-            std::getline(std::cin, temp_hints);
-
-            bool valid{false};
-            while(!valid)
+        bool valid{false};
+        do
+        {
+            //get user input
+            if (!(std::cin >> m_hints))
             {
-                //make sure hint input is a number
-                try
-                {
-                    m_hints = stoi(temp_hints);
-                    valid = true;
-                }
-                catch(...)
-                {
-                    cout << "invalid input" << '\n';
-                }
+                cout << "invalid input" << '\n';
+                //clear error flag on cin
+                std::cin.clear();
+                //ignore 1000 characters in input buffer, including newLine character
+                std::cin.ignore(1000, '\n');
+                continue;
             }
 
-            do
+            if (m_hints >= m_letter_count)
             {
-                if (m_hints >= m_letter_count)
-                {
-                    cout << "too many hints!" << endl;
-                    valid = false;
-                }
-                else
-                {
-                    valid = true;
-                }
-            } while(!valid);
+                cout << "too many hints!" << endl;
+            }
+            else
+            {
+                valid = true;
+            }
+
+        } while(!valid);
 
         //adds the number of letters to the vector
         std::vector<int> vec;

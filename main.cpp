@@ -19,23 +19,21 @@ int main ()
         << "1. Hang Man" << endl
         << "2. C++ quiz" << "\n\n";
 
-    int choice{};
     bool valid{false};
-    while(!valid)
+    int choice{-4};
+
+    while (!valid)
     {
-        cout << "Your Choice: ";
-        //ensure user input is a number
-        try
-        {
-            string temp;
-            std::getline(std::cin, temp);
-            choice = stoi(temp);
-            valid = true;
-        }
-        catch(...)
+        if (!(std::cin >> choice) || choice < 1 || choice > 2)
         {
             cout << "invalid entry" << '\n';
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
+            continue;
         }
+        valid = true;
+        //clear input buffer
+        std::cin.ignore(1000, '\n');
     }
 
     system("clear");
