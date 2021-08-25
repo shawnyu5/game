@@ -105,6 +105,7 @@ void Quiz::run(Quiz& quiz)
     cout << "Press Enter to start the quiz..." << endl;
     cin.get();
 
+    system("clear");
 
     //loops through all questions and asks them
     for (auto& current : quiz.getQuestions())
