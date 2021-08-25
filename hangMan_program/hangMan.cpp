@@ -59,34 +59,32 @@ namespace sdds
     void HangMan::setAttempt()
     {
        cout << "How many attemps are allowed? (There are " << m_letter_count << " letters in answer)" << endl;
-       string attemps;
+
        bool valid = false;
        while(!valid)
        {
-           std::getline(std::cin, attemps);
-           //if an invalid value is entered, throw error and ask user for input again
-           try
-           {
-               m_attempt = stoi(attemps);
-               if (m_attempt < m_letter_count)
-               {
-                   cout << "Too few attempts given! There are " << m_letter_count << " letters in the answer" << endl;
-                   valid = false;
-               }
-               else
-                   valid = true;
-           }
-           catch(...)
+           //if input is not a number, throw error
+           if (!(std::cin >> m_attempt))
            {
                cout << "invalid entry, please try again" << endl;
+
+               std::cin.clear();
+               std::cin.ignore(1000, '\n');
+               continue;
+           }
+
+           //if too few attemps, ask for input again
+           if (m_attempt < m_letter_count)
+           {
+               cout << "Too few attempts given! There are " << m_letter_count << " letters in the answer" << endl;
                valid = false;
            }
-           if (valid == true)
+           else
            {
+               valid = true;
                break;
            }
        }
-
     }
 
     //set number of hints
@@ -276,34 +274,41 @@ namespace sdds
             << "     Welcome To Hang Man        \n"
             << "=================================\n\n"
             << "1. Play Game" << endl
-            << "2. Set New Word" << "\n\n"
-            << "Your Choice: ";
+            << "2. Set New Word" << "\n\n";
 
         string choice{};
-        std::getline(std::cin, choice);
+        bool valid{false};
 
-        if(choice == "1")
+        while (!valid)
         {
-            //retrieve the correct word
-            game.getWordFromFile();
+            cout << "Your Choice: ";
+            std::getline(std::cin, choice);
 
-            //how many attemps are allowed by the user
-            game.setAttempt();
-            game.setHints();
-            game.instructions();
-            game.display(cout);
+            if(choice == "1")
+            {
+                //retrieve the correct word
+                game.getWordFromFile();
 
-            //keep playing until attemp returns true
-            while(!game.attempt());
-        }
-        else if (choice == "2")
-        {
-            HangMan game;
-            game.setWord();
-        }
-        else
-        {
-            cout << "Invalid input" << endl;
+                //how many attemps are allowed by the user
+                game.setAttempt();
+                game.setHints();
+                game.instructions();
+                game.display(cout);
+
+                //keep playing until attemp returns true
+                while(!game.attempt());
+                valid = true;
+            }
+            else if (choice == "2")
+            {
+                HangMan game;
+                game.setWord();
+                valid = true;
+            }
+            else
+            {
+                cout << "Invalid input" << endl;
+            }
         }
     }
 
