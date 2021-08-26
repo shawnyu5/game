@@ -66,6 +66,12 @@ std::vector<Question> Quiz::getQuestions() const
     return m_questions;
 }
 
+//returns the current total score
+int Quiz::getTotalScore() const
+{
+    return m_total_score;
+}
+
 //adds score passed in to the total score
 void Quiz::addScore(int score)
 {
@@ -73,11 +79,6 @@ void Quiz::addScore(int score)
 }
 
 
-//returns the current total score
-int Quiz::getTotalScore() const
-{
-    return m_total_score;
-}
 
 
 //tells the user if they passed or not
