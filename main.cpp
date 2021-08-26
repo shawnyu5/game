@@ -37,6 +37,7 @@ int main ()
     }
 
     system("clear");
+
     switch (choice)
     {
         case 1:
@@ -135,5 +136,6 @@ int main ()
                     2});
 
             quiz.run(quiz);
+            break;
     }
 }

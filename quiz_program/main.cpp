@@ -5,12 +5,17 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <cstring>
 using namespace std;
-
 
 int main () {
 
     Quiz quiz;
+
+    //char temp[1000];
+    //std::cin.get(temp, 1000);
+    //char* answers = new char[954];
+    //strcpy(answers, temp);
 
     quiz.addQuestion(Question{"Which data type is used to create a variable that should store text?",
             std::vector<string>
