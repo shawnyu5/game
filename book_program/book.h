@@ -1,6 +1,7 @@
 //purpose of this file:
 //Date: 2021-08-25
 //---------------------------------
+#pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #ifndef BOOK_H_
 #define BOOK_H_
@@ -11,6 +12,7 @@
 using std::cout;
 using std::endl;
 using std::string;
+
 class Book
 {
 private:
@@ -40,11 +42,10 @@ public:
     //subtracts the number of books passed in
     void buy(string title, string author, int bought);
 
-    //add inventory for a title
+    //add inventory for a title ONLY IF THE TITLE EXIST
     void addInventory(string title, string author, int bought);
 
     //display
     void display();
 };
-
 #endif
