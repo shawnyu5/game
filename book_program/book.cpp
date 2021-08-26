@@ -44,7 +44,7 @@ int Book::search(string title, string author){
     }
 
     //return invalid value if nothing is found
-    return -1;
+    return 0;
 }
 
 //subtracts the number of books passed in
@@ -57,8 +57,15 @@ void Book::buy(string title, string author, int bought)
 //add inventory for a title
 void Book::addInventory(string title, string author, int bought)
 {
-    int inventory = search(title, author);
-    m_copies += bought;
+    for (auto& current : m_books)
+    {
+        if(current.m_title == title && current.m_author == author)
+        {
+            current.m_copies += bought;
+        }
+    }
+    //int inventory = search(title, author);
+    //m_copies += bought;
 }
 
 //display
