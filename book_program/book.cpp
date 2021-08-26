@@ -64,11 +64,14 @@ void Book::addInventory(string title, string author, int bought)
 //display
 void Book::display()
 {
-    cout << "Title: " << m_title << '\n'
-        << "Author: " << m_author << '\n'
-        << "Publisher: " << m_publisher << '\n'
-        << "Price: " << m_price << '\n'
-        << "Copies: " << m_copies << '\n';
+    for (auto& current : m_books)
+    {
+        cout << "Title: " << current.m_title << '\n'
+            << "Author: " << current.m_author << '\n'
+            << "Publisher: " << current.m_publisher << '\n'
+            << "Price: $" << current.m_price << '\n'
+            << "Copies: " << current.m_copies << "\n\n";
+    }
 }
 
 

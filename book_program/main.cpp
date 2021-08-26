@@ -19,6 +19,9 @@ int main ()
     book.addBook("song of solomon", "toni morrison", "target", 16.00, 50);
     book.addBook("ulysse", "james joyce", "joyce and co", 17, 100);
     book.addBook("the shadow of the wind", "carlos ruiz zafon", "amazon", 34, 10);
+
+    cout << "All books:" << "\n\n";
+    book.display();
     //book.addBook("<++>", "<++>", "<++>", <++>, <++>);
     //book.addBook("<++>", "<++>", "<++>", <++>, <++>);
     //book.addBook("<++>", "<++>", "<++>", <++>, <++>);
@@ -27,6 +30,7 @@ int main ()
     cout << book.search("war and peace", "leo tolstoy") << '\n'; //100
     cout << book.search("war and peace", "toni tolstoy") << '\n'; //-1
     cout << book.search("the shadow of the wind", "carlos ruiz zafon") << '\n'; //10
+
 }
 
 
