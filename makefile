@@ -5,7 +5,7 @@ game: hangMan.o main.o quiz.o
 	 g++ -Wall -g -o game hangMan.o quiz.o main.o && ./game  | tee output.txt
 
 clean:
-	rm -f *.o hangman
+	rm -f *.o game
 
 valgrind: hangman
 	valgrind -s --leak-check=full --track-origins=yes ./hangMan
