@@ -21,9 +21,6 @@ struct Question
     //the correct answer
     int m_correct_answer = 0;
 
-    //no point of having this being a member variable
-    //int m_user_guess = 0;
-
     //default constuctor
     Question()
     {}
